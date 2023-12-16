@@ -1,0 +1,98 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <style>
+    body {
+      margin: 0;
+      font-family: 'Arial', sans-serif;
+      text-align: center;
+    }
+
+    .button-container {
+      display: flex;
+      justify-content: space-around;
+      align-items: center;
+      height: 60px;
+      background-color: #333;
+    }
+
+    .button {
+      padding: 10px 20px;
+      color: #fff;
+      text-decoration: none;
+      font-size: 16px;
+      cursor: pointer;
+      transition: transform 0.2s ease-in-out;
+    }
+
+    /* Button Colors */
+    .button.btn1 { background-color: #3498db; }
+    .button.btn2 { background-color: #e74c3c; }
+    .button.btn3 { background-color: #2ecc71; }
+    .button.btn4 { background-color: #f39c12; }
+
+    /* Hover Effect */
+    .button:hover {
+      transform: scale(1.1);
+    }
+  </style>
+</head>
+<body>
+  <h1 align="center">Interactive Button with Dynamic Content</h1>
+
+  <script>
+    // Get user inputs
+    var firstInput = prompt('Enter the 1st input:');
+    var secondInput = prompt('Enter the 2nd input:');
+
+    // Function to show the result message
+    function showResultMessage() {
+      if (parseFloat(firstInput) > parseFloat(secondInput)) {
+        document.body.style.backgroundColor = 'lightblue';
+        document.write(`<p>${firstInput} > ${secondInput}</p>`);
+      } else if (parseFloat(secondInput) > parseFloat(firstInput)) {
+        document.body.style.backgroundColor = 'orange';
+        document.write(`<p>${secondInput} > ${firstInput}</p>`);
+      } else {
+        document.body.style.backgroundColor = 'lightyellow';
+        document.write(`<p>${secondInput} == ${firstInput}</p>`);
+      }
+    }
+
+    // Function to show the first input
+    function showFirstInput() {
+      alert(`1st Input: ${firstInput}`);
+    }
+
+    // Function to show the second input
+    function showSecondInput() {
+      alert(`2nd Input: ${secondInput}`);
+    }
+
+    // Function to change background color
+    function changeBackgroundColor(color) {
+      document.body.style.backgroundColor = color;
+    }
+
+    // Function to reset background color
+    function resetBackgroundColor() {
+      document.body.style.backgroundColor = ''; // Reset to default or any desired color
+    }
+
+    // Display result and buttons
+    showResultMessage();
+  </script>
+
+  <div class="button-container">
+    <button class="button btn2" onclick="showFirstInput()">Show 1st Input</button>
+    <button class="button btn3" onclick="showSecondInput()">Show 2nd Input</button>
+    <button class="button btn1" onclick="changeBackgroundColor('#3498db')">Change to Blue</button>
+    <button class="button btn4" onclick="changeBackgroundColor('#f39c12')">Change to Yellow</button>
+    <button class="button btn4" onclick="resetBackgroundColor()">Reset</button>
+  </div>
+
+</body>
+</html>
+
